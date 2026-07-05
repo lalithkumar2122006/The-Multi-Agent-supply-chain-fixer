@@ -1,0 +1,88 @@
++------------------+
+                         |      USER        |
+                         +------------------+
+                         | User_ID (PK)     |
+                         | Name             |
+                         | Email            |
+                         | Role             |
+                         +--------+---------+
+                                  |
+                                  |
+                    Creates/Monitors
+                                  |
+                                  v
+                     +----------------------+
+                     |     SHIPMENT         |
+                     +----------------------+
+                     | Shipment_ID (PK)     |
+                     | Product_ID (FK)      |
+                     | Supplier_ID (FK)     |
+                     | Warehouse_ID (FK)    |
+                     | Status               |
+                     | Quantity             |
+                     | Dispatch_Date        |
+                     | Delivery_Date        |
+                     +-----+-----------+----+
+                           |           |
+                           |           |
+                           |           |
+            +--------------+           +----------------+
+            |                                           |
+            v                                           v
++---------------------+                  +----------------------+
+|      PRODUCT        |                  |      SUPPLIER       |
++---------------------+                  +----------------------+
+| Product_ID (PK)     |                  | Supplier_ID (PK)     |
+| Product_Name        |                  | Supplier_Name        |
+| Category            |                  | Contact              |
+| Unit_Price          |                  | Location             |
+| Stock               |                  +----------------------+
++----------+----------+
+           |
+           |
+           v
++----------------------+
+|     INVENTORY        |
++----------------------+
+| Inventory_ID (PK)    |
+| Product_ID (FK)      |
+| Warehouse_ID (FK)    |
+| Current_Stock        |
+| Threshold_Stock      |
++----------+-----------+
+           |
+           |
+           v
++----------------------+
+|     WAREHOUSE        |
++----------------------+
+| Warehouse_ID (PK)    |
+| Name                 |
+| Location             |
+| Capacity             |
++----------+-----------+
+           |
+           |
+           v
++----------------------+
+|       AGENT          |
++----------------------+
+| Agent_ID (PK)        |
+| Agent_Name           |
+| Agent_Type           |
+| Status               |
++----------+-----------+
+           |
+           |
+           v
++----------------------+
+|      ISSUE           |
++----------------------+
+| Issue_ID (PK)        |
+| Shipment_ID (FK)     |
+| Agent_ID (FK)        |
+| Issue_Type           |
+| Priority             |
+| Status               |
+| Resolution           |
++----------------------+
