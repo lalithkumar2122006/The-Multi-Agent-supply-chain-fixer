@@ -1,0 +1,46 @@
+Multi-Agent Supply Chain Fixer
+
+Simple Use Case Diagram
+
+@startuml
+left to right direction
+
+actor User
+actor Admin
+actor Supplier
+actor Logistics Manager
+actor AI Agents
+
+rectangle "Multi-Agent Supply Chain Fixer" {
+  usecase "Login / Authenticate" as UC1
+  usecase "Monitor Inventory" as UC2
+  usecase "Manage Suppliers" as UC3
+  usecase "Track Shipments" as UC4
+  usecase "Forecast Demand" as UC5
+  usecase "Receive Alerts" as UC6
+  usecase "View Analytics Dashboard" as UC7
+  usecase "Generate Reports" as UC8
+  usecase "Optimize Logistics" as UC9
+}
+
+User --> UC1
+User --> UC2
+User --> UC4
+User --> UC5
+User --> UC6
+User --> UC7
+User --> UC8
+
+Admin --> UC3
+Admin --> UC7
+Admin --> UC8
+
+Supplier --> UC3
+Logistics Manager --> UC4
+Logistics Manager --> UC9
+
+AI Agents --> UC2
+AI Agents --> UC5
+AI Agents --> UC6
+AI Agents --> UC9
+@enduml
